@@ -13,14 +13,17 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      min-height: 100vh;
-      height: auto;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Inter', 'Segoe UI', sans-serif;
       background: #faf0f5;
       color: #3d2c3a;
       line-height: 1.6;
       padding: 1.5rem;
+      min-height: 100vh;
     }
 
     .container {
@@ -31,12 +34,9 @@
       box-shadow: 0 25px 50px -12px rgba(180, 80, 140, 0.25);
       padding: 2rem 2.5rem;
       border: 1px solid #fce4f0;
-      min-height: 800px;
-      height: auto;
-      overflow: visible;
     }
 
-    /* ===== RESTO DO CSS IGUAL ===== */
+    /* NAVEGAÇÃO */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -45,6 +45,11 @@
       border-bottom: 2px solid #fad6e8;
       padding-bottom: 1.2rem;
       margin-bottom: 2rem;
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 100;
+      border-radius: 0 0 20px 20px;
     }
 
     nav a {
@@ -57,6 +62,7 @@
       transition: all 0.2s;
       background: transparent;
       letter-spacing: -0.01em;
+      cursor: pointer;
     }
 
     nav a i {
@@ -69,6 +75,11 @@
       transform: translateY(-1px);
     }
 
+    nav a:active {
+      transform: scale(0.96);
+    }
+
+    /* TÍTULOS */
     h2 {
       font-size: 2rem;
       font-weight: 700;
@@ -109,6 +120,7 @@
       color: #7a4d6a;
     }
 
+    /* CARDS */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -139,6 +151,7 @@
       display: inline-block;
     }
 
+    /* BADGES */
     .badge {
       display: inline-block;
       background: #fad6e8;
@@ -151,19 +164,35 @@
       letter-spacing: 0.02em;
     }
 
-    .foto-placeholder {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(135deg, #fad6e8, #fce4f0);
+    /* ===== FOTO DE PERFIL ===== */
+    .foto-perfil {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f0b8d0;
+      box-shadow: 0 8px 24px rgba(200, 100, 150, 0.25);
+      transition: all 0.3s;
+      background: linear-gradient(135deg, #fad6e8, #fce4f0);
+      display: block;
+    }
+
+    .foto-perfil:hover {
+      transform: scale(1.05);
+      border-color: #e884b5;
+      box-shadow: 0 12px 32px rgba(200, 100, 150, 0.35);
+    }
+
+    .foto-wrapper {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      font-size: 3.2rem;
-      color: #8d4d75;
-      margin: 0.3rem 0 1rem 0;
-      border: 3px solid #f0b8d0;
-      box-shadow: 0 6px 16px rgba(200, 100, 150, 0.15);
+    }
+
+    .foto-wrapper .legenda {
+      font-size: 0.85rem;
+      color: #8a6a7a;
+      margin-top: 0.4rem;
     }
 
     .flex-row {
@@ -183,6 +212,107 @@
       border-radius: 24px;
       margin: 0.8rem 0;
       border: 1px solid #fad6e8;
+    }
+
+    /* ===== GALERIA DE FOTOS ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid #fad6e8;
+      transition: all 0.3s;
+      background: #fcf5f9;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      border-color: #e884b5;
+      box-shadow: 0 8px 24px rgba(200, 100, 150, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item .placeholder-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #b88aa8;
+      font-size: 0.9rem;
+      width: 100%;
+      height: 100%;
+      background: #fce4f0;
+    }
+
+    .gallery-item .placeholder-img i {
+      font-size: 2.5rem;
+      color: #d969a0;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ===== ESTÁGIO ===== */
+    .estagio-card {
+      background: linear-gradient(135deg, #fce4f0, #fcf5f9);
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      border: 2px solid #e8b8d0;
+      margin: 1.2rem 0;
+    }
+
+    .estagio-card h4 {
+      color: #5d2d4e;
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+
+    .estagio-card .badge {
+      background: #e884b5;
+      color: white;
+    }
+
+    .estagio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .estagio-gallery .gallery-item {
+      aspect-ratio: 16/10;
+    }
+
+    /* Estágio CBTU */
+    .estagio-cbtu {
+      background: linear-gradient(135deg, #e8f0fe, #f0f5ff);
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      border: 2px solid #b8cce8;
+      margin: 1.2rem 0;
+    }
+
+    .estagio-cbtu h4 {
+      color: #2a4a7a;
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+
+    .estagio-cbtu .badge {
+      background: #4a7ab5;
+      color: white;
     }
 
     .page-sintese {
@@ -227,6 +357,21 @@
       margin-top: 0.15rem;
     }
 
+    .highlight-box {
+      background: linear-gradient(135deg, #fce4f0, #fcf5f9);
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #e8b8d0;
+      margin: 1rem 0;
+    }
+
+    .estagio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* RESPONSIVIDADE */
     @media (max-width: 720px) {
       .container {
         padding: 1.5rem 1.2rem;
@@ -249,14 +394,30 @@
       .flex-row .info {
         text-align: center;
       }
-      .foto-placeholder {
-        margin: 0.3rem auto 1rem auto;
+      .foto-perfil {
+        width: 110px;
+        height: 110px;
+      }
+      .foto-wrapper {
+        margin: 0 auto;
       }
       .evidence-block {
         padding: 1rem 1.2rem;
       }
       .page-sintese {
         padding: 1.2rem 1.2rem;
+      }
+      nav {
+        position: relative;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+      .estagio-gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+      .estagio-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -267,22 +428,27 @@
       .container {
         padding: 1rem 0.8rem;
         border-radius: 20px;
-        min-height: 600px;
       }
       nav {
         gap: 0.2rem 0.5rem;
       }
       nav a {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.6rem;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
       }
       .card-grid {
         grid-template-columns: 1fr;
       }
-    }
-
-    html {
-      scroll-behavior: smooth;
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .estagio-gallery {
+        grid-template-columns: 1fr;
+      }
+      .foto-perfil {
+        width: 90px;
+        height: 90px;
+      }
     }
   </style>
 </head>
@@ -290,6 +456,7 @@
 
   <div class="container">
 
+    <!-- ========== NAVEGAÇÃO ========== -->
     <nav>
       <a href="#inicio"><i class="fas fa-home"></i> Início</a>
       <a href="#evidencias"><i class="fas fa-certificate"></i> Evidências</a>
@@ -298,15 +465,19 @@
       <a href="#sintese"><i class="fas fa-flag-checkered"></i> Síntese</a>
     </nav>
 
-    <!-- ===== PÁGINA 1: INÍCIO ===== -->
+    <!-- ============================================================ -->
+    <!-- ========== PÁGINA 1: INÍCIO ========== -->
+    <!-- ============================================================ -->
     <section id="inicio">
       <h2><i class="fas fa-user-graduate"></i> Página Inicial</h2>
       <div class="flex-row">
-        <div style="display:flex; flex-direction:column; align-items:center;">
-          <div class="foto-placeholder">
+        <div class="foto-wrapper">
+          <!-- ===== FOTO DE PERFIL ===== -->
+          <img src="img/perfil.jpg" alt="Nathália Carvalho" class="foto-perfil" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="foto-perfil" style="display:none; background:linear-gradient(135deg, #fad6e8, #fce4f0); align-items:center; justify-content:center; font-size:3.5rem; color:#8d4d75;">
             <i class="fas fa-user-circle"></i>
           </div>
-          <p style="font-size:0.9rem; color:#8a6a7a; margin-top:-0.2rem;"><i class="fas fa-camera" style="color:#d969a0;"></i> Nathália Carvalho</p>
+          <p class="legenda"><i class="fas fa-camera" style="color:#d969a0;"></i> Nathália Carvalho</p>
         </div>
         <div class="info">
           <h3 style="margin-top:0; font-size:1.6rem; color:#5d2d4e;">Nathália Carvalho</h3>
@@ -329,15 +500,57 @@
       </div>
     </section>
 
-    <!-- ===== PÁGINA 2: EVIDÊNCIAS ===== -->
+    <!-- ============================================================ -->
+    <!-- ========== PÁGINA 2: EVIDÊNCIAS ========== -->
+    <!-- ============================================================ -->
     <section id="evidencias">
       <h2><i class="fas fa-medal"></i> Evidências e Aprendizados</h2>
       <p style="margin-bottom:1.2rem; color:#6d4d5e;">
         <i class="fas fa-arrow-right" style="color:#d969a0;"></i> 
-        Certificados, trabalhos, apresentações e o Projeto Integrador com contexto, participação e aprendizado.
       </p>
 
-      <h3><i class="fas fa-people-arrows"></i> Projeto Integrador</h3>
+      <!-- ===== PROJETO INTEGRADOR 4 ===== -->
+      <h3><i class="fas fa-people-arrows"></i> Projeto Integrador 4 – Visita Técnica na Globo</h3>
+      
+      <div class="highlight-box">
+        <p><span class="badge">⭐ Destaque</span> <span class="badge">Visita Técnica</span> <span class="badge">2025/2</span></p>
+        <p style="margin-top:0.8rem;">
+          <strong>Contexto:</strong> Como parte do Projeto Integrador 4, realizamos uma visita técnica à <strong>Rede Globo</strong>, onde pudemos conhecer de perto a infraestrutura tecnológica utilizada na produção, transmissão e gestão de conteúdo. A visita proporcionou uma visão prática sobre como a tecnologia é aplicada em uma das maiores emissoras do mundo.
+        </p>
+        <p><strong>Minha participação:</strong> Participei ativamente da visita, realizando perguntas sobre os sistemas de automação, infraestrutura de TI e fluxos de trabalho utilizados na emissora. Também contribuí na elaboração do relatório técnico e na apresentação dos aprendizados para a turma.</p>
+        <p><strong>Aprendizado:</strong> Compreendi como a tecnologia é essencial para o funcionamento de uma grande emissora, desde a captação de imagens até a distribuição de conteúdo em múltiplas plataformas. A visita reforçou a importância da integração entre diferentes áreas tecnológicas e a necessidade de soluções escaláveis e resilientes.</p>
+      </div>
+
+      <!-- ===== GALERIA DE FOTOS DA GLOBO ===== -->
+      <h4 style="margin-top:1.5rem;"><i class="fas fa-images" style="color:#d969a0;"></i> Galeria de Fotos - Visita Globo</h4>
+      <p style="color:#8a6a7a; font-size:0.9rem; margin-bottom:0.8rem;">Clique nas imagens para ampliar (em breve)</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="img/globe1.jpg" alt="Visita Globo - Foto 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">
+            <i class="fas fa-image"></i>
+            <span>globe1.jpg</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/globe2.jpg" alt="Visita Globo - Foto 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">
+            <i class="fas fa-image"></i>
+            <span>globe2.jpg</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/globe3.jpg" alt="Visita Globo - Foto 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">
+            <i class="fas fa-image"></i>
+            <span>globe3.jpg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PROJETO INTEGRADOR ANTERIOR ===== -->
+      <h3 style="margin-top:2rem;"><i class="fas fa-people-arrows"></i> Projeto Integrador (semestre anterior)</h3>
       <div class="card" style="background:#fcf5f9; border-left:4px solid #e884b5;">
         <p><span class="badge">⭐ Destaque</span> <span class="badge">Multidisciplinar</span></p>
         <p><strong>Contexto:</strong> O Projeto Integrador teve como objetivo aplicar na prática os conhecimentos adquiridos durante a graduação, promovendo a resolução de problemas reais por meio da tecnologia.</p>
@@ -345,6 +558,7 @@
         <p><strong>Aprendizado:</strong> Aprendi a importância do trabalho em equipe, da comunicação entre os membros do grupo e da organização para cumprir prazos e objetivos.</p>
       </div>
 
+      <!-- Apresentações -->
       <h3><i class="fas fa-chalkboard-teacher"></i> Apresentações Acadêmicas</h3>
       <div class="evidence-block">
         <p><strong>Contexto:</strong> Durante o semestre participei de apresentações relacionadas às disciplinas do curso.</p>
@@ -352,6 +566,7 @@
         <p><strong>Aprendizado:</strong> Desenvolvi maior confiança para falar em público e transmitir informações de forma clara e objetiva.</p>
       </div>
 
+      <!-- Trabalhos e Atividades -->
       <h3><i class="fas fa-tasks"></i> Trabalhos e Atividades</h3>
       <div class="evidence-block">
         <p><strong>Contexto:</strong> Realização de atividades práticas e teóricas propostas pelas disciplinas.</p>
@@ -375,7 +590,9 @@
       </div>
     </section>
 
-    <!-- ===== PÁGINA 3: PROJETOS ===== -->
+    <!-- ============================================================ -->
+    <!-- ========== PÁGINA 3: PROJETOS ========== -->
+    <!-- ============================================================ -->
     <section id="projetos">
       <h2><i class="fas fa-rocket"></i> Projetos e Percurso Acadêmico</h2>
 
@@ -429,9 +646,76 @@
       </div>
     </section>
 
-    <!-- ===== PÁGINA 4: PLANEJAMENTO ===== -->
+    <!-- ============================================================ -->
+    <!-- ========== PÁGINA 4: PLANEJAMENTO ========== -->
+    <!-- ============================================================ -->
     <section id="planejamento">
       <h2><i class="fas fa-bullseye"></i> Planejamento Pós-Faculdade</h2>
+
+      <!-- ===== ESTÁGIOS EM GRID ===== -->
+      <h3><i class="fas fa-briefcase" style="color:#d969a0;"></i> Primeiro Dia do Estágio</h3>
+
+      <div class="estagio-grid">
+        <!-- ===== ESTÁGIO 1: CBTU ===== -->
+        <div class="estagio-cbtu">
+          <p>
+            <span class="badge">🚆 CBTU</span>
+            <span class="badge">2026</span>
+            <span class="badge">Estágio</span>
+          </p>
+          <h4 style="color:#2a4a7a; margin-top:0.5rem;">CBTU - Companhia Brasileira de Trens Urbanos</h4>
+          <p style="margin-top:0.6rem;">
+            <strong>Contexto:</strong> Iniciei meu estágio na CBTU com grande entusiasmo. A empresa é responsável pela gestão de trens urbanos em diversas regiões do Brasil, e tive a oportunidade de conhecer de perto a infraestrutura tecnológica que sustenta as operações.
+          </p>
+          <p><strong>Minha participação:</strong> No primeiro dia, participei das atividades de integração, conheci a equipe de TI, visitei as instalações operacionais e tive acesso aos sistemas utilizados no dia a dia da companhia.</p>
+          <p><strong>Expectativas:</strong> Espero contribuir com soluções tecnológicas que melhorem a eficiência operacional e a experiência dos passageiros.</p>
+          
+          <!-- Foto CBTU -->
+          <div class="gallery-item" style="margin-top:1rem; aspect-ratio:16/10;">
+            <img src="img/cbtuday.jpg" alt="Primeiro Dia na CBTU" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-img" style="display:none;">
+              <i class="fas fa-train"></i>
+              <span>cbtuday.jpg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ESTÁGIO 2: Outro Estágio ===== -->
+        <div class="estagio-card">
+          <p>
+            <span class="badge">🏢 Empresa</span>
+            <span class="badge">2026</span>
+            <span class="badge">Estágio</span>
+          </p>
+          <h4 style="margin-top:0.5rem;">Estágio em Tecnologia</h4>
+          <p style="margin-top:0.6rem;">
+            <strong>Contexto:</strong> Iniciei meu estágio na área de tecnologia com muita expectativa e entusiasmo. O primeiro dia foi marcado por apresentações, integração com a equipe e o início do contato com os projetos e ferramentas que fazem parte do dia a dia da empresa.
+          </p>
+          <p><strong>Minha participação:</strong> Participei das reuniões de boas-vindas, conheci a infraestrutura da empresa, recebi meu computador e acessos aos sistemas internos. Também tive a oportunidade de conversar com meus novos colegas e entender melhor a cultura organizacional.</p>
+          <p><strong>Expectativas:</strong> Espero aprender muito durante essa jornada, aplicar os conhecimentos adquiridos na faculdade e contribuir com soluções inovadoras para os desafios da empresa.</p>
+
+          <!-- Galeria de fotos do segundo estágio -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1rem;">
+            <div class="gallery-item" style="aspect-ratio:16/10;">
+              <img src="img/logo.jpg" alt="Logo da Empresa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="placeholder-img" style="display:none;">
+                <i class="fas fa-building"></i>
+                <span>logo.jpg</span>
+              </div>
+            </div>
+            <div class="gallery-item" style="aspect-ratio:16/10;">
+              <img src="img/primeirodia.jpg" alt="Primeiro Dia de Estágio" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="placeholder-img" style="display:none;">
+                <i class="fas fa-user-check"></i>
+                <span>primeirodia.jpg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PLANEJAMENTO ORIGINAL ===== -->
+      <h3 style="margin-top:2rem;"><i class="fas fa-flag"></i> Objetivos Profissionais</h3>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem;">
         <div>
@@ -470,7 +754,9 @@
       </div>
     </section>
 
-    <!-- ===== PÁGINA 5: SÍNTESE ===== -->
+    <!-- ============================================================ -->
+    <!-- ========== PÁGINA 5: SÍNTESE FINAL ========== -->
+    <!-- ============================================================ -->
     <section id="sintese">
       <h2><i class="fas fa-flag-checkered"></i> Síntese Final</h2>
 
@@ -510,6 +796,7 @@
       </div>
     </section>
 
+    <!-- ========== RODAPÉ ========== -->
     <div class="footer-port">
       <i class="fas fa-code"></i> Portfólio acadêmico – Nathália Carvalho 
       <i class="fas fa-circle" style="font-size:0.3rem; vertical-align:middle; margin:0 6px;"></i>
