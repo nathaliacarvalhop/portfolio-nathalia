@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Nathália Carvalho</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100vh;
+      height: auto;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #faf0f5;
+      color: #3d2c3a;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px;
+      box-shadow: 0 25px 50px -12px rgba(180, 80, 140, 0.25);
+      padding: 2rem 2.5rem;
+      border: 1px solid #fce4f0;
+      min-height: 800px;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* ===== RESTO DO CSS IGUAL ===== */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3rem 1rem;
+      border-bottom: 2px solid #fad6e8;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #7a4d6a;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      transition: all 0.2s;
+      background: transparent;
+      letter-spacing: -0.01em;
+    }
+
+    nav a i {
+      margin-right: 6px;
+    }
+
+    nav a:hover {
+      background: #fce4f0;
+      color: #a04b82;
+      transform: translateY(-1px);
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      color: #5d2d4e;
+      border-left: 6px solid #e884b5;
+      padding-left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 i {
+      color: #d969a0;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.6rem 0;
+      color: #6d3d5e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 i {
+      color: #d969a0;
+      font-size: 1.2rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0.8rem 0 0.2rem 0;
+      color: #7a4d6a;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .card {
+      background: #fcf5f9;
+      border-radius: 24px;
+      padding: 1.5rem 1.3rem;
+      border: 1px solid #fad6e8;
+      transition: all 0.25s;
+      box-shadow: 0 4px 12px rgba(200, 120, 160, 0.06);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px -8px rgba(200, 100, 160, 0.18);
+      border-color: #e8a8c8;
+      background: #fff7fb;
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #d969a0;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fad6e8;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #6d3d5e;
+      margin-right: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .foto-placeholder {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, #fad6e8, #fce4f0);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      color: #8d4d75;
+      margin: 0.3rem 0 1rem 0;
+      border: 3px solid #f0b8d0;
+      box-shadow: 0 6px 16px rgba(200, 100, 150, 0.15);
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .flex-row .info {
+      flex: 1;
+    }
+
+    .evidence-block {
+      background: #fcf5f9;
+      padding: 1.2rem 1.8rem;
+      border-radius: 24px;
+      margin: 0.8rem 0;
+      border: 1px solid #fad6e8;
+    }
+
+    .page-sintese {
+      background: #fcf5f9;
+      border-radius: 28px;
+      padding: 1.8rem 2.2rem;
+      border: 1px solid #fad6e8;
+    }
+
+    .page-sintese h3 {
+      margin-top: 1.2rem;
+    }
+
+    .page-sintese h3:first-of-type {
+      margin-top: 0;
+    }
+
+    hr {
+      border: 0;
+      border-top: 2px dashed #f0c8dd;
+      margin: 1.8rem 0;
+    }
+
+    .footer-port {
+      border-top: 2px solid #fad6e8;
+      margin-top: 2.2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9a7a8a;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-port i {
+      color: #d969a0;
+      margin: 0 4px;
+    }
+
+    .meta {
+      color: #8a6a7a;
+      font-size: 0.88rem;
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        padding: 1.5rem 1.2rem;
+        border-radius: 28px;
+      }
+      nav a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+        padding-left: 0.8rem;
+      }
+      .flex-row {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        text-align: center;
+      }
+      .flex-row .info {
+        text-align: center;
+      }
+      .foto-placeholder {
+        margin: 0.3rem auto 1rem auto;
+      }
+      .evidence-block {
+        padding: 1rem 1.2rem;
+      }
+      .page-sintese {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+      }
+      .container {
+        padding: 1rem 0.8rem;
+        border-radius: 20px;
+        min-height: 600px;
+      }
+      nav {
+        gap: 0.2rem 0.5rem;
+      }
+      nav a {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+      <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+      <a href="#evidencias"><i class="fas fa-certificate"></i> Evidências</a>
+      <a href="#projetos"><i class="fas fa-project-diagram"></i> Projetos</a>
+      <a href="#planejamento"><i class="fas fa-calendar-check"></i> Planejamento</a>
+      <a href="#sintese"><i class="fas fa-flag-checkered"></i> Síntese</a>
+    </nav>
+
+    <!-- ===== PÁGINA 1: INÍCIO ===== -->
+    <section id="inicio">
+      <h2><i class="fas fa-user-graduate"></i> Página Inicial</h2>
+      <div class="flex-row">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="foto-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <p style="font-size:0.9rem; color:#8a6a7a; margin-top:-0.2rem;"><i class="fas fa-camera" style="color:#d969a0;"></i> Nathália Carvalho</p>
+        </div>
+        <div class="info">
+          <h3 style="margin-top:0; font-size:1.6rem; color:#5d2d4e;">Nathália Carvalho</h3>
+          <p style="font-size:1.1rem; font-weight:500; color:#7a4d6a;">
+            <span class="badge" style="background:#f0b8d0; color:#5d2d4e;">🎓</span> Estudante de Análise e Desenvolvimento de Sistemas
+          </p>
+          <p style="margin-top:0.8rem; font-size:1rem;">
+            Bem-vindo(a) ao meu portfólio acadêmico. Este espaço foi desenvolvido para registrar minha trajetória durante a graduação em Análise e Desenvolvimento de Sistemas, reunindo projetos, aprendizados, experiências acadêmicas e reflexões sobre meu desenvolvimento profissional.
+          </p>
+          <p style="margin-top:0.6rem; color:#6d4d5e; background:#fcf5f9; padding:0.6rem 1rem; border-radius:16px; border-left:4px solid #e884b5;">
+            <i class="fas fa-quote-left" style="color:#d969a0; margin-right:6px;"></i>
+            Ao longo do curso, tive a oportunidade de desenvolver competências técnicas e comportamentais que contribuíram significativamente para minha formação, preparando-me para novos desafios e oportunidades no mercado de trabalho.
+          </p>
+          <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+            <span class="badge"><i class="far fa-calendar-alt"></i> 2023 – 2026</span>
+            <span class="badge"><i class="fas fa-map-pin"></i> 6º semestre</span>
+            <span class="badge"><i class="fas fa-envelope"></i> nathalia.c@email.com</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PÁGINA 2: EVIDÊNCIAS ===== -->
+    <section id="evidencias">
+      <h2><i class="fas fa-medal"></i> Evidências e Aprendizados</h2>
+      <p style="margin-bottom:1.2rem; color:#6d4d5e;">
+        <i class="fas fa-arrow-right" style="color:#d969a0;"></i> 
+        Certificados, trabalhos, apresentações e o Projeto Integrador com contexto, participação e aprendizado.
+      </p>
+
+      <h3><i class="fas fa-people-arrows"></i> Projeto Integrador</h3>
+      <div class="card" style="background:#fcf5f9; border-left:4px solid #e884b5;">
+        <p><span class="badge">⭐ Destaque</span> <span class="badge">Multidisciplinar</span></p>
+        <p><strong>Contexto:</strong> O Projeto Integrador teve como objetivo aplicar na prática os conhecimentos adquiridos durante a graduação, promovendo a resolução de problemas reais por meio da tecnologia.</p>
+        <p><strong>Minha participação:</strong> Atuei no planejamento das atividades, levantamento de requisitos, desenvolvimento das propostas e organização da documentação do projeto.</p>
+        <p><strong>Aprendizado:</strong> Aprendi a importância do trabalho em equipe, da comunicação entre os membros do grupo e da organização para cumprir prazos e objetivos.</p>
+      </div>
+
+      <h3><i class="fas fa-chalkboard-teacher"></i> Apresentações Acadêmicas</h3>
+      <div class="evidence-block">
+        <p><strong>Contexto:</strong> Durante o semestre participei de apresentações relacionadas às disciplinas do curso.</p>
+        <p><strong>Minha participação:</strong> Contribuí na elaboração dos materiais e na apresentação dos conteúdos para a turma.</p>
+        <p><strong>Aprendizado:</strong> Desenvolvi maior confiança para falar em público e transmitir informações de forma clara e objetiva.</p>
+      </div>
+
+      <h3><i class="fas fa-tasks"></i> Trabalhos e Atividades</h3>
+      <div class="evidence-block">
+        <p><strong>Contexto:</strong> Realização de atividades práticas e teóricas propostas pelas disciplinas.</p>
+        <p><strong>Minha participação:</strong> Pesquisa, desenvolvimento das atividades e entrega dos trabalhos dentro dos prazos estabelecidos.</p>
+        <p><strong>Aprendizado:</strong> Fortaleci minha capacidade de organização, pesquisa e resolução de problemas.</p>
+      </div>
+
+      <div class="card-grid" style="margin-top:1.5rem;">
+        <div class="card">
+          <i class="fas fa-laptop-code"></i>
+          <h4>Certificados</h4>
+          <p>Fundamentos de TI · Lógica de Programação · Banco de Dados</p>
+          <div class="meta"><i class="far fa-clock"></i> 2024/2025</div>
+        </div>
+        <div class="card">
+          <i class="fas fa-pen-fancy"></i>
+          <h4>Prints & Entregas</h4>
+          <p>Projetos práticos, exercícios e atividades avaliativas</p>
+          <div class="meta"><i class="far fa-file-code"></i> +15 entregas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PÁGINA 3: PROJETOS ===== -->
+    <section id="projetos">
+      <h2><i class="fas fa-rocket"></i> Projetos e Percurso Acadêmico</h2>
+
+      <div class="card" style="margin-bottom:1.2rem;">
+        <h4><i class="fas fa-university" style="color:#d969a0;"></i> Sistema de Gerenciamento Acadêmico</h4>
+        <p><strong>Objetivo:</strong> Desenvolver uma solução para auxiliar no controle de informações acadêmicas.</p>
+        <p><strong>Contexto:</strong> Projeto desenvolvido como atividade prática da graduação.</p>
+        <p><strong>Minha participação:</strong> Participei da modelagem da solução, organização das informações e desenvolvimento das funcionalidades propostas.</p>
+        <p><strong>Problemas enfrentados:</strong> Dificuldades na integração de funcionalidades e na divisão das tarefas da equipe.</p>
+        <p><strong>Aprendizados:</strong> Compreensão da importância do planejamento e da comunicação durante o desenvolvimento de projetos.</p>
+      </div>
+
+      <div class="card" style="background:#fcf5f9; border:1px solid #e8b8d0;">
+        <h4><i class="fas fa-people-arrows" style="color:#d969a0;"></i> Projeto Integrador</h4>
+        <p><strong>Objetivo:</strong> Aplicar conhecimentos técnicos na resolução de uma necessidade identificada.</p>
+        <p><strong>Contexto:</strong> Projeto multidisciplinar desenvolvido ao longo do semestre.</p>
+        <p><strong>Minha participação:</strong> Planejamento, desenvolvimento de soluções e elaboração da documentação.</p>
+        <p><strong>Problemas enfrentados:</strong> Gerenciamento de tempo e alinhamento das atividades da equipe.</p>
+        <p><strong>Aprendizados:</strong> Desenvolvimento de responsabilidade, liderança e trabalho colaborativo.</p>
+      </div>
+
+      <h3 style="margin-top:2rem;"><i class="fas fa-arrow-up"></i> Reflexão sobre Evolução</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:0.5rem;">
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-lightbulb" style="color:#d969a0;"></i> O que mais mudou?</h4>
+          <p>Passei a ter uma visão mais profissional sobre a área de tecnologia e compreendi melhor a importância do aprendizado contínuo para acompanhar as transformações do mercado.</p>
+        </div>
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-clock" style="color:#d969a0;"></i> Principal dificuldade</h4>
+          <p>Conciliar as demandas acadêmicas com outras responsabilidades e administrar o tempo de forma eficiente.</p>
+        </div>
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-code" style="color:#d969a0;"></i> O que comecei a desenvolver?</h4>
+          <p>Habilidades técnicas relacionadas à tecnologia, além de competências como comunicação, organização, trabalho em equipe e resolução de problemas.</p>
+        </div>
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-rocket" style="color:#d969a0;"></i> O que ainda preciso melhorar?</h4>
+          <p>Aprofundar conhecimentos em áreas específicas da tecnologia, melhorar a gestão do tempo e desenvolver ainda mais minha confiança profissional.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:0.5rem;">
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-users" style="color:#d969a0;"></i> Como me comportei em grupos?</h4>
+          <p>Procurei colaborar de forma ativa, cumprindo minhas responsabilidades, ouvindo opiniões diferentes e contribuindo para o alcance dos objetivos do grupo.</p>
+        </div>
+        <div class="card" style="background:#fcf5f9;">
+          <h4><i class="fas fa-comments" style="color:#d969a0;"></i> Responsabilidade, comunicação e organização</h4>
+          <p>Aprendi que essas competências são fundamentais para o sucesso acadêmico e profissional, contribuindo para a realização eficiente das atividades e para o bom relacionamento com outras pessoas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PÁGINA 4: PLANEJAMENTO ===== -->
+    <section id="planejamento">
+      <h2><i class="fas fa-bullseye"></i> Planejamento Pós-Faculdade</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem;">
+        <div>
+          <div class="card" style="background:#fcf5f9; height:100%;">
+            <i class="fas fa-flag" style="font-size:2rem; color:#d969a0;"></i>
+            <h4>Objetivos Profissionais</h4>
+            <p>Meu objetivo é continuar investindo no desenvolvimento profissional por meio de cursos, certificações e experiências práticas na área de tecnologia.</p>
+            <p style="margin-top:0.6rem;">Tenho interesse em atuar em empresas que valorizem inovação, aprendizado contínuo e desenvolvimento de soluções tecnológicas.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="background:#fcf5f9; height:100%;">
+            <i class="fas fa-graduation-cap" style="font-size:2rem; color:#d969a0;"></i>
+            <h4>Certificações e Cursos</h4>
+            <p>Pretendo buscar oportunidades de estágio e emprego que permitam aplicar os conhecimentos adquiridos durante a graduação.</p>
+            <p style="margin-top:0.6rem;">Também planejo realizar certificações técnicas para fortalecer meu currículo e ampliar minhas possibilidades de atuação profissional.</p>
+          </div>
+        </div>
+        <div style="grid-column:1 / -1;">
+          <div class="card" style="background:#fcf5f9;">
+            <i class="fas fa-lightbulb" style="font-size:2rem; color:#d969a0;"></i>
+            <h4>Visão de Longo Prazo</h4>
+            <p>A longo prazo, considero a possibilidade de desenvolver projetos próprios e empreender na área de tecnologia, criando soluções que possam gerar impacto positivo para pessoas e organizações.</p>
+            <p style="margin-top:0.6rem;">Para alcançar esses objetivos, pretendo continuar desenvolvendo competências como liderança, comunicação, organização, tomada de decisão, trabalho em equipe e resolução de problemas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem; background:#fce4f0; padding:1rem 1.5rem; border-radius:20px; text-align:center; border:1px solid #e8b8d0;">
+        <i class="fas fa-heart" style="color:#d969a0;"></i>
+        <span style="font-weight:500; color:#6d3d5e;"> Áreas de interesse: </span>
+        <span class="badge">Desenvolvimento Full-Stack</span>
+        <span class="badge">Cloud Computing</span>
+        <span class="badge">Análise de Dados</span>
+        <span class="badge">Empreendedorismo</span>
+      </div>
+    </section>
+
+    <!-- ===== PÁGINA 5: SÍNTESE ===== -->
+    <section id="sintese">
+      <h2><i class="fas fa-flag-checkered"></i> Síntese Final</h2>
+
+      <div class="page-sintese">
+        <p style="font-size:1.05rem;">
+          <i class="fas fa-quote-left" style="color:#d969a0; font-size:1.4rem; vertical-align:middle; margin-right:6px;"></i>
+          Ao iniciar minha trajetória acadêmica, possuía interesse pela tecnologia, mas ainda conhecia pouco sobre as possibilidades e desafios da área. Ao longo do curso, adquiri conhecimentos técnicos, participei de projetos e enfrentei situações que contribuíram para meu crescimento pessoal e profissional.
+        </p>
+
+        <h3><i class="fas fa-people-arrows" style="color:#d969a0;"></i> Projeto Integrador e experiências</h3>
+        <p>O Projeto Integrador e as demais atividades acadêmicas proporcionaram experiências importantes, permitindo aplicar conceitos estudados em sala de aula e desenvolver competências essenciais para o mercado de trabalho.</p>
+
+        <h3><i class="fas fa-heart" style="color:#d969a0;"></i> Competências desenvolvidas</h3>
+        <p>Além dos conhecimentos técnicos, desenvolvi habilidades relacionadas à comunicação, organização, responsabilidade e trabalho em equipe. Aprendi a lidar melhor com desafios, prazos e situações que exigiam comprometimento e adaptação.</p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.8rem 0;">
+          <span class="badge" style="background:#f0b8d0;">💻 Programação</span>
+          <span class="badge" style="background:#f0b8d0;">📊 Análise de Dados</span>
+          <span class="badge" style="background:#f0b8d0;">🗄️ Banco de Dados</span>
+          <span class="badge" style="background:#f0b8d0;">🤝 Trabalho em Equipe</span>
+          <span class="badge" style="background:#f0b8d0;">🗣️ Comunicação</span>
+          <span class="badge" style="background:#f0b8d0;">📋 Organização</span>
+          <span class="badge" style="background:#f0b8d0;">🎯 Resolução de Problemas</span>
+        </div>
+
+        <h3><i class="fas fa-star" style="color:#d969a0;"></i> Encerramento</h3>
+        <p style="font-size:1.05rem;">
+          Hoje, encerro este ciclo com uma visão mais clara dos meus objetivos profissionais e com a motivação de continuar aprendendo e evoluindo. Levo comigo os conhecimentos, experiências e aprendizados construídos durante essa jornada, que certamente contribuirão para minha trajetória futura.
+        </p>
+
+        <hr>
+        <p style="text-align:center; font-style:italic; color:#7a4d6a; font-size:1.05rem;">
+          <i class="fas fa-arrow-right" style="color:#d969a0;"></i> 
+          Cada etapa dessa jornada me preparou para os desafios que virão. 
+          <i class="fas fa-arrow-left" style="color:#d969a0;"></i>
+        </p>
+      </div>
+    </section>
+
+    <div class="footer-port">
+      <i class="fas fa-code"></i> Portfólio acadêmico – Nathália Carvalho 
+      <i class="fas fa-circle" style="font-size:0.3rem; vertical-align:middle; margin:0 6px;"></i>
+      2026 
+      <i class="fas fa-heart" style="color:#d969a0;"></i>
+    </div>
+
+  </div>
+
+</body>
+</html>
